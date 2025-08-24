@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000, #8B0000); /* gradasi hitam-merah */
+      font-family: Arial, sans-serif;
+    }
+    .player {
+      text-align: center;
+    }
+    button {
+      background: #fff;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="player">
+    <button onclick="playMusic()">▶ Play</button>
+    <button onclick="pauseMusic()">⏸ Pause</button>
+  </div>
+
+  <!-- panggil file mp3 langsung -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="TikSave.io_7505461206749089029.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const music = document.getElementById("bg-music");
+
+    function playMusic() {
+      if (music.paused) {
+        music.play().catch(err => console.log("Autoplay blocked:", err));
+      }
+    }
+
+    function pauseMusic() {
+      if (!music.paused) {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+    </html>
