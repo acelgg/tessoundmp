@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +11,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #000, #8B0000); /* gradasi hitam-merah */
+      background: linear-gradient(135deg, black, darkred);
       font-family: Arial, sans-serif;
     }
     .player {
       text-align: center;
     }
     button {
-      background: #fff;
+      background: rgba(255, 0, 0, 0.8);
       border: none;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 18px;
+      padding: 12px 24px;
+      margin: 8px;
       border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: 0.3s;
     }
     button:hover {
-      transform: scale(1.1);
+      background: red;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -38,7 +41,7 @@
     <button onclick="pauseMusic()">⏸ Pause</button>
   </div>
 
-  <!-- panggil file mp3 langsung -->
+  <!-- Panggil file mp3 langsung -->
   <audio id="bg-music" loop preload="auto">
     <source src="TikSave.io_7505461206749089029.mp3" type="audio/mpeg">
   </audio>
@@ -48,7 +51,9 @@
 
     function playMusic() {
       if (music.paused) {
-        music.play().catch(err => console.log("Autoplay blocked:", err));
+        music.play().catch(err => {
+          console.log("Autoplay blocked:", err);
+        });
       }
     }
 
@@ -59,4 +64,4 @@
     }
   </script>
 </body>
-    </html>
+</html>
